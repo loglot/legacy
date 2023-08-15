@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>game test</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      canvas {
+        background: #eee;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="game_screen" width="1676" height="918"></canvas>
+
+    <script>
+      const canvas = document.getElementById("game_screen");
+      const ctx = canvas.getContext("2d");
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+      var r = 0
+      var min = 10
+      var max = 450
+      var start = 70
+      var x = 838
+      var y = 459
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+      draw_circ(r)
+      grow_circ(start)
+
+
+      document.addEventListener('keypress', (event) => {
+        var name = event.key;
+        var code = event.code;
+        key_man(name)
+      }, false);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// library
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+      async function shrink_circ(ammount){
+        for(let i = 0; i < ammount; i++) {
+          r--;
+          if (r < min) {
+            r = min
+          };
+          draw_circ(r);
+          await sleep (10);
+        }
+      };
+
+      async function grow_circ(ammount){
+        for(let i = 0; i < ammount; i++) {
+
+            r++;
+            draw_circ(r);
+            await sleep(10);
+
+            if (r > max) {
+              r = max
+            }
+
+            if (x < r + 5) {
+              x = r + 5
+            }
+
+            if (x > -r + 1670) {
+              x = -r + 1670
+            }
+
+            if (y < r + 8) {
+              y = r + 8
+            }
+
+            if (y > -r + 910) {
+              y = -r + 910
+            }
+
+        };
+
+        console.log (r)
+
+      };
+
+      async function move_circ(xc, yc) {
+        if (xc < 0) {
+          var abs_xc = 0 - xc
+        } else {
+          var abs_xc = xc
+        }
+
+        if (yc < 0) {
+          var abs_yc = 0 - yc
+        } else {
+          var abs_yc = yc
+        }
+
+        for (let i = 0; i < abs_xc; i++) {
+          if (xc < 0) {
+            x--;
+
+            if (x < r + 5) {
+              x = r + 5
+            }
+
+            draw_circ(r);
+            await sleep(10);
+
+          } else {
+            x++;
+
+            if (x > -r + 1670) {
+              x = -r + 1670
+            }
+
+            draw_circ(r);
+            await sleep(10);
+          };
+
+        }
+
+          for (let i = 0; i < abs_yc; i++) {
+            if (yc < 0) {
+              y--;
+
+              if (y < r + 8) {
+                y = r + 8
+              }
+
+              draw_circ(r);
+              await sleep(10);
+            } else {
+              y++;
+
+              if (y > -r + 910) {
+                y = -r + 910
+              }
+
+              draw_circ(r);
+              await sleep(10);
+            };
+
+          };
+
+          console.log (x, y)
+
+      }
+
+
+
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      };
+
+      function key_man(name) {
+        if (name == "-") (
+          shrink_circ(20)
+        )
+        if (name == "=" || name == "+") {
+          grow_circ(20)
+        }
+        if (name == "w" || name == "ArrowUp") {
+          move_circ(0, -20)
+        }
+        if (name == "s") {
+          move_circ(0, 20)
+        }
+        if (name == "a") {
+          move_circ(-20, 0)
+        }
+        if (name == "d") {
+          move_circ(20, 0)
+        }
+      };
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//circle drawing
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+      function draw_circ(radius) {
+        outline = radius + 5
+
+        //clear screen
+
+        ctx.beginPath();
+        ctx.rect(0, 0, 10000, 10000);
+        ctx.fillStyle = "#e0e0e0";
+        ctx.fill();
+        ctx.closePath();
+
+        //outline
+
+        ctx.beginPath();
+        ctx.arc(x, y, outline, 0, Math.PI * 2, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        //shadow
+
+        ctx.beginPath();
+        ctx.arc(x - 5, y + 5, outline, 0, Math.PI * 2, false);
+        ctx.fillStyle = "rgba(0, 0, 0, .1)";
+        ctx.fill();
+        ctx.closePath();
+
+        //main color
+
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = "grey";
+        ctx.fill();
+        ctx.closePath();
+
+      };
+
+
+
+    </script>
+  </body>
+</html>
