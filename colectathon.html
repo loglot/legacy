@@ -206,9 +206,9 @@
       function coin_check() {
 
         if (coin_x < x + r && coin_x > x - r && coin_y < y + r && coin_y > y - r && coin == 1) {
-
           coin = 0
           draw_game()
+	  spawn_coin(1500)
         }
         
       }
