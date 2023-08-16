@@ -9,7 +9,7 @@
         margin: 0;
       }
       canvas {
-        background: #eee;
+        background: #fff;
         display: block;
         margin: 0 auto;
       }
@@ -224,6 +224,16 @@
         
       }
 
+			function drawStroked(text, x, y) {
+		    ctx.font = '80px Sans-serif';
+ 		   ctx.strokeStyle = 'black';
+		    ctx.lineWidth = 8;
+		    ctx.strokeText(text, x, y);
+		    ctx.fillStyle = 'white';
+		    ctx.fillText(text, x, y);
+		}
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //circle drawing
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -236,10 +246,14 @@
 
 				
 					if (menu == 1) {
+						ctx.fillStyle = "white";
+					  ctx.font = "78px Arial Black";
+					  ctx.fillText("yet another collectathon", 250, 200);
+						ctx.fillText("press space to start", 260, 500)
 						ctx.fillStyle = "black";
-					  ctx.font = "48px serif";
-					  ctx.fillText("yet another collectathon", 550, 200);
-						ctx.fillText("press space to start", 560, 500)
+						ctx.line
+					  ctx.traceText("yet another collectathon", 250, 200);
+						ctx.traceText("press space to start", 260, 500)
 					} else{
 				coin_check()
         draw_circ(r, "#afbfaf", x, y)
