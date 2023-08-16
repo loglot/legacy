@@ -1,7 +1,7 @@
 # javascript-game-collectathon
 
 ## features
-moving
+moving,
 collecting coins
 
 it's simple, but it works
