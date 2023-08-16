@@ -166,12 +166,12 @@
       };
 
       function key_man(name) {
-				if (menu == 1) {
-					if (name == " ") {
-						menu++
-						draw_game()
-					}
-				}else{
+        if (menu == 1) {
+          if (name == " ") {
+            menu++
+            draw_game()
+          }
+        }else{
 //        if (name == "-") (
 //          shrink_circ(20)
 //        )
@@ -216,23 +216,23 @@
 
         if (coin_x < x + r && coin_x > x - r && coin_y < y + r && coin_y > y - r && coin == 1) {
           coin = 0
-				  collection++
+          collection++
           draw_game()
-					grow_circ(5)
-				  spawn_coin(1500)
-					console.log(collection)
+          grow_circ()
+          spawn_coin(1500)
+          console.log(collection)
         }
         
       }
 
-			function drawStroked(text, x, y) {
-		    ctx.font = '80px Sans-serif';
- 		  	ctx.strokeStyle = 'black';
-		    ctx.lineWidth = 8;
-		    ctx.strokeText(text, x, y);
-		    ctx.fillStyle = 'white';
-		    ctx.fillText(text, x, y);
-		}
+      function drawStroked(text, x, y) {
+        ctx.font = '80px Sans-serif';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 8;
+        ctx.strokeText(text, x, y);
+        ctx.fillStyle = 'white';
+        ctx.fillText(text, x, y);
+      }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -246,11 +246,11 @@
         draw_rect()
 
 				
-					if (menu == 1) {
-						drawStroked("yet another collectathon", 250, 200)
-						drawStroked("press space to start", 260, 500)
-					} else{
-				coin_check()
+        if (menu == 1) {
+          drawStroked("yet another collectathon", 250, 200)
+          drawStroked("press space to start", 260, 500)
+        } else{
+        coin_check()
         draw_circ(r, "#afbfaf", x, y)
         if (coin == 1) {
 //          console.log (coin)
