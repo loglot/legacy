@@ -226,7 +226,7 @@
 
 			function drawStroked(text, x, y) {
 		    ctx.font = '80px Sans-serif';
- 		   ctx.strokeStyle = 'black';
+ 		  	ctx.strokeStyle = 'black';
 		    ctx.lineWidth = 8;
 		    ctx.strokeText(text, x, y);
 		    ctx.fillStyle = 'white';
@@ -246,14 +246,8 @@
 
 				
 					if (menu == 1) {
-						ctx.fillStyle = "white";
-					  ctx.font = "78px Arial Black";
-					  ctx.fillText("yet another collectathon", 250, 200);
-						ctx.fillText("press space to start", 260, 500)
-						ctx.fillStyle = "black";
-						ctx.line
-					  ctx.traceText("yet another collectathon", 250, 200);
-						ctx.traceText("press space to start", 260, 500)
+						drawStroked("yet another collectathon", 250, 200)
+						drawStroked("press space to start", 260, 500)
 					} else{
 				coin_check()
         draw_circ(r, "#afbfaf", x, y)
