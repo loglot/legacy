@@ -1,4 +1,4 @@
-# javascript-game-collectathon
+# javascript collectathon game
 
 ## features
 moving,
