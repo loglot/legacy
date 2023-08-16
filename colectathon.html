@@ -179,13 +179,13 @@
 //          grow_circ(20)
 //        }
           if (name == "w" || name == "ArrowUp") {
-      	   move_circ(0, -20)
+      	    move_circ(0, -20)
           }
           if (name == "s") {
             move_circ(0, 20)
       	  }
        	  if (name == "a") {
-       	   move_circ(-20, 0)
+       	    move_circ(-20, 0)
           }
           if (name == "d") {
             move_circ(20, 0)
@@ -218,7 +218,7 @@
           coin = 0
           collection++
           draw_game()
-          grow_circ()
+          grow_circ(10)
           spawn_coin(1500)
           console.log(collection)
         }
