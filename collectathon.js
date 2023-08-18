@@ -157,6 +157,7 @@
 	    } else {
 	      growth_c = "yes"
 	    }
+            draw_game()
           }
         }else{
 //        if (name == "-") (
