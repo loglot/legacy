@@ -228,7 +228,7 @@
         if (menu == 1) {
           drawStroked("yet another collectathon", 250, 200)
           drawStroked("press space to start", 260, 500)
-          drawStroked("growth on coin: $x", 260, 500)
+          drawStroked("growth on coin: ${x}", 260, 500)
         } else{
         coin_check()
         draw_circ(r, "#afbfaf", x, y)
