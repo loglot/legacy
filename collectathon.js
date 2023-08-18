@@ -237,7 +237,7 @@
         if (menu == 1) {
           drawStroked("yet another collectathon", 250, 200)
           drawStroked("press space to start", 260, 500)
-          drawStroked(`growth on coin: ${x} (press t to flip)`, 260, 600)
+          drawStroked(`growth on coin: ${growth-c} (press t to flip)`, 260, 600)
         } else{
         coin_check()
         draw_circ(r, "#afbfaf", x, y)
