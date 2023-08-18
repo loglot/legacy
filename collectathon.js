@@ -15,16 +15,16 @@
       var coin = 0
       var collection = 0
       var menu = 1
+      var growth_c = "yes"
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
       draw_game()
 
       document.addEventListener('keypress', (event) => {
-        var name = event.key;
         var code = event.code;
-        key_man(name)
-        }, false);
+        key_man(code)
+      }, false);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // library
@@ -144,11 +144,19 @@
 
       function key_man(name) {
         if (menu == 1) {
-          if (name == " ") {
+          if (name == "Space") {
             menu++
             spawn_coin(3000)
             draw_game()
             grow_circ(start)
+          }
+
+          if (name == "KeyT") {
+	    if (growth_c == "yes") {
+	      growth_c = "no"
+	    } else {
+	      growth_c = "yes"
+	    }
           }
         }else{
 //        if (name == "-") (
@@ -157,18 +165,19 @@
 //        if (name == "=" || name == "+") {
 //          grow_circ(20)
 //        }
-          if (name == "w" || name == "ArrowUp") {
+          if (name == "KeyW") {
       	    move_circ(0, -20)
           }
-          if (name == "s") {
+          if (name == "KeyS") {
             move_circ(0, 20)
       	  }
-       	  if (name == "a") {
+       	  if (name == "KeyA") {
        	    move_circ(-20, 0)
           }
-          if (name == "d") {
+          if (name == "KeyD") {
             move_circ(20, 0)
-					}
+          }
+
         }
       };
 
@@ -228,7 +237,7 @@
         if (menu == 1) {
           drawStroked("yet another collectathon", 250, 200)
           drawStroked("press space to start", 260, 500)
-          drawStroked("growth on coin: ${x}", 260, 500)
+          drawStroked(`growth on coin: ${x} (press t to flip)`, 260, 600)
         } else{
         coin_check()
         draw_circ(r, "#afbfaf", x, y)
