@@ -152,11 +152,11 @@
           }
 
           if (name == "KeyT") {
-	    if (growth_c == "yes") {
-	      growth_c = "no"
-	    } else {
-	      growth_c = "yes"
-	    }
+            if (growth_c == "yes") {
+              growth_c = "no"
+            } else {
+              growth_c = "yes"
+            }
             draw_game()
           }
         }else{
@@ -167,13 +167,13 @@
 //          grow_circ(20)
 //        }
           if (name == "KeyW") {
-      	    move_circ(0, -20)
+            move_circ(0, -20)
           }
           if (name == "KeyS") {
             move_circ(0, 20)
-      	  }
-       	  if (name == "KeyA") {
-       	    move_circ(-20, 0)
+          }
+          if (name == "KeyA") {
+            move_circ(-20, 0)
           }
           if (name == "KeyD") {
             move_circ(20, 0)
@@ -234,22 +234,24 @@
 
         draw_rect()
 
-				
+
         if (menu == 1) {
           drawStroked("yet another collectathon", 250, 200)
           drawStroked("press space to start", 260, 500)
           drawStroked(`growth on coin: ${growth_c} (press t to flip)`, 260, 600)
         } else{
-        coin_check()
-        draw_circ(r, "#afbfaf", x, y)
-        if (coin == 1) {
-//          console.log (coin)
-          draw_circ(coin_r, "yellow", coin_x, coin_y)
-					}
+          coin_check()
+          draw_circ(r, "#afbfaf", x, y)
+          if (coin == 1) {
+//            console.log (coin)
+            draw_circ(coin_r, "yellow", coin_x, coin_y)
+            
+          }
+          drawStroked(`${collection}`, 50, 100)
         }
       }
 
-			
+
       function draw_circ(radius, color, x, y, shadow) {
         inline = radius - 5
 
