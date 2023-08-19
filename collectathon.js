@@ -16,4 +16,4 @@ function drawStroked(text, x, y) {
   ctx.fillText(text, x, y);
 }
 
-drawStroked(javascript file not found, 738, 449)
+drawStroked("javascript file not found", 738, 449)
