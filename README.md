@@ -1,3 +1,3 @@
 # loglot.github.io
 
-made this auto redirect to a website who knows what they are doing
+my old website. might update to have modern content in a new repo as a goof lmao
